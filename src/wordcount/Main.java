@@ -50,7 +50,19 @@ public class Main
 
     System.out.println("50" + list50);
 
-    
+    list50.forEach(item -> {
+      System.out.println("Word: " + item.getKey() + ", Count: " + item.getValue());
+    });
+
+    Collections.sort(list50, new Comparator<HashMap.Entry<String, Integer>>()
+    {
+      public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+      {
+        return o1.getKey().compareTo(o2.getKey());
+      }
+    });
+
+    System.out.println("ALPHA SORTED" + list50);
 
     list50.forEach(item -> {
       System.out.println("Word: " + item.getKey() + ", Count: " + item.getValue());
