@@ -53,7 +53,7 @@ public class Main
     
 
     list50.forEach(item -> {
-      System.out.println(item);
+      System.out.println("Word: " + item.getKey() + ", Count: " + item.getValue());
     });
   }
 }
