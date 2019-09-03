@@ -22,7 +22,7 @@ public class Main
       {
         int count = (int)wordsHashMap.get(word);
         count++;
-        wordsHashMap.put(word, count);
+        wordsHashMap.replace(word, count);
       } else 
       {
         wordsHashMap.put(word, 1);
@@ -30,6 +30,6 @@ public class Main
     }
 
     System.out.println("HASH MAP" + wordsHashMap);
-    
+
   }
 }
