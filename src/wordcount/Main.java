@@ -18,18 +18,42 @@ public class Main
 
     for (String word : words)
     {
-      if (wordsHashMap.containsKey(word))
+      if (wordsHashMap.containsKey(word.toLowerCase()))
       {
-        int count = (int)wordsHashMap.get(word);
+        int count = (int)wordsHashMap.get(word.toLowerCase());
         count++;
-        wordsHashMap.replace(word, count);
+        wordsHashMap.replace(word.toLowerCase(), count);
       } else 
       {
-        wordsHashMap.put(word, 1);
+        wordsHashMap.put(word.toLowerCase(), 1);
       }
     }
 
     System.out.println("HASH MAP" + wordsHashMap);
 
+    ArrayList<HashMap.Entry<String, Integer>> sortedMap = new ArrayList<HashMap.Entry<String, Integer>>();
+    sortedMap.addAll(wordsHashMap.entrySet());
+
+    System.out.println("HERE" + sortedMap);
+
+    Collections.sort(sortedMap, new Comparator<HashMap.Entry<String, Integer>>()
+    {
+      public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+      {
+        return o2.getValue() - o1.getValue();
+      }
+    });
+
+    System.out.println("SORTED" + sortedMap);
+
+    List<HashMap.Entry<String, Integer>> list50 = sortedMap.subList(0, 50);
+
+    System.out.println("50" + list50);
+
+    
+
+    list50.forEach(item -> {
+      System.out.println(item);
+    });
   }
 }
